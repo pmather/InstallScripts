@@ -89,7 +89,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.name = $secrets_items["vm_name"] if !$secrets_items["vm_name"].nil? && !$secrets_items["vm_name"].empty?
       vb.customize ["modifyvm", :id, "--description", "Created from Vagrantfile in #{Dir.pwd}"]
       override.vm.box = "ubuntu/trusty64"
-      vb.memory = 4096
+      vb.memory = 8192
       vb.cpus = 2
       # Forward Solr port in VM to local machine
       override.vm.network :forwarded_port, host: 8983, guest: 8983
