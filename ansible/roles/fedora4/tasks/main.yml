@@ -21,14 +21,10 @@
     group: '{{ fedora_group }}'
     state: directory
 
-- name: download fedora war
-  get_url:
-    url: http://repo1.maven.org/maven2/org/fcrepo/fcrepo-webapp/{{ fedora_version }}/fcrepo-webapp-{{ fedora_version }}.war
+- name: copy patched fedora war into place
+  copy:
+    src: "{{ local_files_dir }}/fcrepo-webapp-4.5.1.war"
     dest: '{{ fedora_app_dir }}/fedora.war'
-    owner: '{{ fedora_user }}'
-    group: '{{ fedora_group }}'
-    mode: 0444
-    timeout: 100
 
 - name: add fedora and java config options to tomcat
   lineinfile:
