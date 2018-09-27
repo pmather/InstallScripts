@@ -115,6 +115,8 @@
       mode: "u=rwX,g=rwXs,o="
     - path: "{{ project_app_root }}/public/branding"
       mode: "u=rwX,g=rwXs,o="
+    - path: "{{ project_owner_home }}/.chromedriver-helper"
+      mode: "u=rwX,g=rwXs,o="
 
 - name: ensure log files have the correct ownerships and permissions
   file:
